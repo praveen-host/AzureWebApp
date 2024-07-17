@@ -109,3 +109,126 @@ CREATE TABLE SalesOrderItems (
     FOREIGN KEY (sales_order_id) REFERENCES SalesOrders(id),
     FOREIGN KEY (product_id) REFERENCES Products(id)
 );
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.5em;
+            box-sizing: border-box;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+        .image-upload {
+            border: 1px dashed #ccc;
+            padding: 1em;
+            text-align: center;
+        }
+        .image-upload p {
+            margin: 0;
+        }
+        .form-actions {
+            margin-top: 1em;
+            text-align: right;
+        }
+        .form-actions button {
+            padding: 0.5em 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New Item</h1>
+        <form>
+            <div class="form-group">
+                <label>Type</label>
+                <input type="radio" name="type" value="goods" checked> Goods
+                <input type="radio" name="type" value="service"> Service
+            </div>
+            <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="sku">SKU</label>
+                <input type="text" id="sku" name="sku">
+            </div>
+            <div class="form-group">
+                <label for="unit">Unit*</label>
+                <select id="unit" name="unit" required>
+                    <option value="">Select or type to add</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="returnable" name="returnable">
+                <label for="returnable">Returnable Item</label>
+            </div>
+            <div class="form-group">
+                <label for="dimensions">Dimensions (Length x Width x Height)</label>
+                <input type="text" id="dimensions" name="dimensions">
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <input type="text" id="weight" name="weight">
+                <select name="weight_unit">
+                    <option value="kg">kg</option>
+                    <option value="g">g</option>
+                    <option value="lb">lb</option>
+                    <option value="oz">oz</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="manufacturer">Manufacturer</label>
+                <select id="manufacturer" name="manufacturer">
+                    <option value="">Select or Add Manufacturer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <select id="brand" name="brand">
+                    <option value="">Select or Add Brand</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="upc">UPC</label>
+                <input type="text" id="upc" name="upc">
+            </div>
+            <div class="form-group image-upload">
+                <label>Images</label>
+                <div>
+                    <p>Drag image(s) here or</p>
+                    <button type="button">Browse images</button>
+                    <p>You can add up to 15 images, each not exceeding 5 MB.</p>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit">Save</button>
+                <button type="button">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
